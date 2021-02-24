@@ -1,0 +1,16 @@
+{
+  "name": "wp-plugin-boilerplate",
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {
+    "build": "webpack --config config/prod.js"
+  },
+  "keywords": [
+    "wordpress",
+    "wp",
+    "plugin",
+    "wp-plugin"
+  ],
+  "author": "Ángel Yarmas <angelyarmasmosquera@gmail.com>",
+  "license": "ISC"
+}
