@@ -1,7 +1,5 @@
 <?php
-namespace Pedestal\App\Internals;
 
-class Bootstrap
-{
-
-}
+/**
+ * Bootstrap the plugins internals, elements, filters and actions.
+ */

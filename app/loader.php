@@ -12,7 +12,7 @@ final class Loader
   public function __construct()
   {
     $this->register_admin_hooks();
-    $this->register_public_hooks();
+    $this->register_front_hooks();
     $this->register_rest_routes();
   }
 
