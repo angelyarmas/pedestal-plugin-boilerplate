@@ -1,0 +1,22 @@
+{
+    "name": "pedestal/pedestal-boilerplate",
+    "description": "Boilerplate structure for modern WordPress plugins",
+    "type": "wordpress-plugin",
+    "license": "GPL",
+    "autoload": {
+        "psr-4": {
+            "Pedestal\\App\\": "app/",
+            "Pedestal\\Elements\\": "elements/",
+            "Pedestal\\Internals\\": "internals/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Ángel Yarmas",
+            "email": "angelyarmas.27@gmail.com"
+        }
+    ],
+    "require": {
+        "hassankhan/config": "^3.1"
+    }
+}
