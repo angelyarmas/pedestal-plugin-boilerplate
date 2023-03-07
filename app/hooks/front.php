@@ -1,7 +1,7 @@
 <?php
 namespace Pedestal\App\Hooks;
 
-class Front
+final class Front
 {
 
 }

@@ -18,4 +18,4 @@ if ( ! defined( 'WPINC' ) ) {
 /**
  * Bootstrap plugin.
  */
-require_once __DIR__ . '/app/internals/boostrap.php';
+require_once plugin_dir_path( __FILE__ ) . 'internals/bootstrap.php';

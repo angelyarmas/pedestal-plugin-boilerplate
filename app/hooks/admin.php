@@ -1,7 +1,6 @@
 <?php
 namespace Pedestal\App\Hooks;
 
-class Assets
+final class Admin
 {
-
 }

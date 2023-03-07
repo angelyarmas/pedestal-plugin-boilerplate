@@ -5,7 +5,9 @@
     "license": "GPL",
     "autoload": {
         "psr-4": {
-            "Pedestal\\PedestalBoilerplate\\": "src/"
+            "Pedestal\\App\\": "app/",
+            "Pedestal\\Elements\\": "elements/",
+            "Pedestal\\Internals\\": "internals/"
         }
     },
     "authors": [
@@ -14,5 +16,7 @@
             "email": "angelyarmas.27@gmail.com"
         }
     ],
-    "require": {}
+    "require": {
+        "hassankhan/config": "^3.1"
+    }
 }
