@@ -23,11 +23,11 @@ if (! defined('ABSPATH')) {
 // Add composer autoload
 require_once __DIR__ . '/vendor/autoload.php';
 
+// Initialize the plugin.
+Pedestal\PedestalNamespace\Internals\Bootstrap::start();
+
 // Setup activation hooks.
 register_activation_hook(__FILE__, [Bootstrap::class, 'activate']);
 
 // Setup deactivation hooks.
 register_deactivation_hook(__FILE__, [Bootstrap::class, 'deactivate']);
-
-// Initialize the plugin.
-Pedestal\PedestalNamespace\Internals\Bootstrap::start();
