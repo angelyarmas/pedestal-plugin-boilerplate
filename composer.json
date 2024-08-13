@@ -1,13 +1,10 @@
 {
-    "name": "pedestal/pedestal-boilerplate",
-    "description": "Boilerplate structure for modern WordPress plugins",
+    "name": "pedestal/pedestal-before-after-gallery",
+    "description": "Advanced before and after gallery by Pedestal.",
     "type": "wordpress-plugin",
-    "license": "GPL",
     "autoload": {
         "psr-4": {
-            "Pedestal\\App\\": "app/",
-            "Pedestal\\Elements\\": "elements/",
-            "Pedestal\\Internals\\": "internals/"
+            "Pedestal\\PedestalNamespace\\": "app/"
         }
     },
     "authors": [
@@ -17,6 +14,8 @@
         }
     ],
     "require": {
-        "hassankhan/config": "^3.1"
+        "hassankhan/config": "^3.1",
+        "icanboogie/inflector": "^2.2",
+        "haydenpierce/class-finder": "^0.5.3"
     }
 }

@@ -6,3 +6,5 @@ node_modules/
 *.tar.gz
 *.zip
 .sass-cache
+.vscode
+vendor/

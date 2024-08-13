@@ -1,30 +1,19 @@
-const defaultConfig = require( '@wordpress/scripts/config/webpack.config' );
-const glob = require( 'glob' )
-let widgets = glob.sync('./assets/js/widgets/**/*.js')
-let shortcodes = glob.sync('./assets/js/shortcodes/**/*.js')
+const path = require('path');
+const glob = require('glob');
 
-console.log(widgets)
-console.log(shortcodes)
+// Import the default Webpack config from WordPress
+const defaultConfig = require( '@wordpress/scripts/config/webpack.config' );
+
+// Import the helper to find and generate the entry points in the src directory
+const { getWebpackEntryPoints } = require( '@wordpress/scripts/utils/config' );
 
 module.exports = {
-  ...defaultConfig,
-  entry: {
-    widgets: widgets,
-    shortcodes: shortcodes,
-  },
-  output: {
-    filename: '[name].bundle.js',
-  },
-  module: {
-    ...defaultConfig.module,
-    rules: [
-      ...defaultConfig.module.rules,
-    ],
-  },
-  plugins: [...defaultConfig.plugins],
-  optimization: {
-    splitChunks: {
-      chunks: 'all',
+    ...defaultConfig,
+    // entry: {
+    //     ...getWebpackEntryPoints(),
+    //     blocks: glob.sync(path.resolve(__dirname, 'app/elements/blocks/**/index.js')),
+    // },
+    output: {
+        path: path.resolve(__dirname, 'assets/build'),
     },
-  }
 };

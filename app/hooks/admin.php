@@ -1,6 +1,11 @@
 <?php
-namespace Pedestal\App\Hooks;
 
-final class Admin
+namespace Pedestal\PedestalNamespace\Hooks;
+
+use Pedestal\PedestalNamespace\Internals\Config;
+use Pedestal\PedestalNamespace\Internals\Locator;
+
+class Admin
 {
+    // Code here.
 }
