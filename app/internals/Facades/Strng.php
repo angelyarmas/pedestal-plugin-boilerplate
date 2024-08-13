@@ -1,9 +1,9 @@
 <?php
 
-namespace Pedestal\PedestalBeforeAfterGallery\Internals\Facades;
+namespace Pedestal\PedestalNamespace\Internals\Facades;
 
 use ICanBoogie\Inflector;
-use Pedestal\PedestalBeforeAfterGallery\Internals\Config;
+use Pedestal\PedestalNamespace\Internals\Config;
 
 class Strng
 {

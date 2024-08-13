@@ -4,7 +4,7 @@
     "type": "wordpress-plugin",
     "autoload": {
         "psr-4": {
-            "Pedestal\\PedestalBeforeAfterGallery\\": "app/"
+            "Pedestal\\PedestalNamespace\\": "app/"
         }
     },
     "authors": [

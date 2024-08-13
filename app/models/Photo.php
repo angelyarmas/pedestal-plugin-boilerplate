@@ -1,8 +1,8 @@
 <?php
 
-namespace Pedestal\PedestalBeforeAfterGallery\Models;
+namespace Pedestal\PedestalNamespace\Models;
 
-use Pedestal\PedestalBeforeAfterGallery\Internals\Base\PostType;
+use Pedestal\PedestalNamespace\Internals\Base\PostType;
 
 class Photo extends PostType
 {

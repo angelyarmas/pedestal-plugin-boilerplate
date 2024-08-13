@@ -1,10 +1,10 @@
 <?php
 
-namespace Pedestal\PedestalBeforeAfterGallery\Routes;
+namespace Pedestal\PedestalNamespace\Routes;
 
 use WP_REST_Request;
-use Pedestal\PedestalBeforeAfterGallery\Internals\Base\Route;
-use Pedestal\PedestalBeforeAfterGallery\Internals\Config;
+use Pedestal\PedestalNamespace\Internals\Base\Route;
+use Pedestal\PedestalNamespace\Internals\Config;
 
 class Create_Post extends Route
 {

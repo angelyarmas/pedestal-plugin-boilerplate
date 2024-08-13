@@ -1,8 +1,8 @@
 <?php
 
-namespace Pedestal\PedestalBeforeAfterGallery\Internals\Base;
+namespace Pedestal\PedestalNamespace\Internals\Base;
 
-use Pedestal\PedestalBeforeAfterGallery\Internals\Config;
+use Pedestal\PedestalNamespace\Internals\Config;
 use WP_REST_Request;
 
 abstract class Route

@@ -1,10 +1,10 @@
 <?php
 
-namespace Pedestal\PedestalBeforeAfterGallery\Internals\Base;
+namespace Pedestal\PedestalNamespace\Internals\Base;
 
 use ICanBoogie\Inflector;
-use Pedestal\PedestalBeforeAfterGallery\Internals\Config;
-use Pedestal\PedestalBeforeAfterGallery\Internals\Facades\Strng;
+use Pedestal\PedestalNamespace\Internals\Config;
+use Pedestal\PedestalNamespace\Internals\Facades\Strng;
 use ReflectionClass;
 
 abstract class PostType

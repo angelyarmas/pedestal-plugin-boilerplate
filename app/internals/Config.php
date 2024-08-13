@@ -1,6 +1,6 @@
 <?php
 
-namespace Pedestal\PedestalBeforeAfterGallery\Internals;
+namespace Pedestal\PedestalNamespace\Internals;
 
 use Noodlehaus\Config as NoodlehausConfig;
 

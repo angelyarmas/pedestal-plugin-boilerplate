@@ -1,10 +1,10 @@
 <?php
 
-namespace Pedestal\PedestalBeforeAfterGallery\Internals;
+namespace Pedestal\PedestalNamespace\Internals;
 
 use HaydenPierce\ClassFinder\ClassFinder;
-use Pedestal\PedestalBeforeAfterGallery\Internals\Facades\Hooks;
-use Pedestal\PedestalBeforeAfterGallery\Routes\Create_Post;
+use Pedestal\PedestalNamespace\Internals\Facades\Hooks;
+use Pedestal\PedestalNamespace\Routes\Create_Post;
 
 /**
  * Initialize all the plugins' hooks and filters.
@@ -17,7 +17,7 @@ class Bootstrap
         require_once Locator::get_path('app/Loader.php');
 
         // Register Models for post types and taxonomies.
-        $models = ClassFinder::getClassesInNamespace('Pedestal\PedestalBeforeAfterGallery\Models');
+        $models = ClassFinder::getClassesInNamespace('Pedestal\PedestalNamespace\Models');
         foreach ($models as $model) {
             if (method_exists($model, 'register')) {
                 Hooks::add_action('init', [new $model(), 'register'], 10, 1);
@@ -25,7 +25,7 @@ class Bootstrap
         }
 
         // Register the plugin's routes.
-        $routes = ClassFinder::getClassesInNamespace('Pedestal\PedestalBeforeAfterGallery\Routes');
+        $routes = ClassFinder::getClassesInNamespace('Pedestal\PedestalNamespace\Routes');
         foreach ($routes as $route) {
             if (method_exists($route, 'register')) {
                 Hooks::add_action('rest_api_init', [new $route(), 'register'], 10, 1);

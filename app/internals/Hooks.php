@@ -1,6 +1,6 @@
 <?php
 
-namespace Pedestal\PedestalBeforeAfterGallery\Internals;
+namespace Pedestal\PedestalNamespace\Internals;
 
 /**
  * Register all actions and filters for the plugin.

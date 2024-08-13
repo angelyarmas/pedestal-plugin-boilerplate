@@ -22,4 +22,4 @@ if (! defined('ABSPATH')) {
 require_once __DIR__ . '/vendor/autoload.php';
 
 // Initialize the plugin.
-Pedestal\PedestalBeforeAfterGallery\Internals\Bootstrap::start();
+Pedestal\PedestalNamespace\Internals\Bootstrap::start();

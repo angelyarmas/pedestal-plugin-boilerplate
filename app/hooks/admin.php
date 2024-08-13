@@ -1,9 +1,9 @@
 <?php
 
-namespace Pedestal\PedestalBeforeAfterGallery\Hooks;
+namespace Pedestal\PedestalNamespace\Hooks;
 
-use Pedestal\PedestalBeforeAfterGallery\Internals\Config;
-use Pedestal\PedestalBeforeAfterGallery\Internals\Locator;
+use Pedestal\PedestalNamespace\Internals\Config;
+use Pedestal\PedestalNamespace\Internals\Locator;
 
 class Admin
 {

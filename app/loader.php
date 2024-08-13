@@ -1,7 +1,7 @@
 <?php
 
-use Pedestal\PedestalBeforeAfterGallery\Hooks\Assets;
-use Pedestal\PedestalBeforeAfterGallery\Internals\Facades\Hooks;
+use Pedestal\PedestalNamespace\Hooks\Assets;
+use Pedestal\PedestalNamespace\Internals\Facades\Hooks;
 
 /**
  * Register all basic actions and filters for the plugin.
