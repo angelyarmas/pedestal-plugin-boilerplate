@@ -1,0 +1,21 @@
+{
+    "name": "pedestal/pedestal-before-after-gallery",
+    "description": "Advanced before and after gallery by Pedestal.",
+    "type": "wordpress-plugin",
+    "autoload": {
+        "psr-4": {
+            "Pedestal\\PedestalNamespace\\": "app/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Ángel Yarmas",
+            "email": "angelyarmas.27@gmail.com"
+        }
+    ],
+    "require": {
+        "hassankhan/config": "^3.1",
+        "icanboogie/inflector": "^2.2",
+        "haydenpierce/class-finder": "^0.5.3"
+    }
+}
