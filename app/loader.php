@@ -1,33 +1,11 @@
 <?php
-namespace Pedestal\App;
+
+use Pedestal\PedestalBeforeAfterGallery\Hooks\Assets;
+use Pedestal\PedestalBeforeAfterGallery\Internals\Facades\Hooks;
 
 /**
- * Loader Class
- *
- * Contains all the Actions, filters, REST endpoints,
- * widgets, shortcodes, blocks from the plugin.
+ * Register all basic actions and filters for the plugin.
  */
-final class Loader
-{
-  public function __construct()
-  {
-    $this->register_admin_hooks();
-    $this->register_front_hooks();
-    $this->register_rest_routes();
-  }
-
-  private function register_front_hooks()
-  {
-    # code...
-  }
-
-  private function register_admin_hooks()
-  {
-    # code...
-  }
-
-  private function register_rest_routes()
-  {
-    # code...
-  }
-}
+Hooks::add_action('init', [Assets::class, 'register_plugin_assets'], 10, 2);
+Hooks::add_action('wp_enqueue_scripts', [Assets::class, 'load_plugin_front_assets'], 10, 2);
+Hooks::add_action('admin_enqueue_scripts', [Assets::class, 'load_plugin_admin_assets'], 10, 2);
