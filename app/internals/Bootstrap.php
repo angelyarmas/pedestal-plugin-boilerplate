@@ -57,4 +57,24 @@ class Bootstrap
             }
         }
     }
+
+    /**
+     * Callback function to run on plugin activation.
+     *
+     * @return  void
+     */
+    public static function activate()
+    {
+        // Code to run on plugin activation.
+    }
+
+    /**
+     * Callback function to run on plugin deactivation.
+     *
+     * @return  void
+     */
+    public static function deactivate()
+    {
+        // Code to run on plugin deactivation.
+    }
 }
