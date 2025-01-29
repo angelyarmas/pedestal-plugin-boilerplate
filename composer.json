@@ -2,12 +2,18 @@
     "name": "pedestal/pedestal-before-after-gallery",
     "description": "Advanced before and after gallery by Pedestal.",
     "version": "0.0.1",
-    "type": "wordpress-plugin",
+    "type": "project",
     "autoload": {
         "psr-4": {
             "PedestalNamespace\\": "app/"
         }
     },
+    "repositories": [
+        {
+            "type": "vcs",
+            "url": "https://github.com/angelyarmas/pedestal-plugin-boilerplate"
+        }
+    ],
     "authors": [
         {
             "name": "Ángel Yarmas",
