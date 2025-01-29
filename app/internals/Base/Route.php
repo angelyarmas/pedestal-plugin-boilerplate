@@ -1,9 +1,8 @@
 <?php
 
-namespace Pedestal\PedestalNamespace\Internals\Base;
+namespace PedestalNamespace\Internals\Base;
 
-use Pedestal\PedestalNamespace\Internals\Config;
-use WP_REST_Request;
+use PedestalNamespace\Internals\Config;
 
 abstract class Route
 {
@@ -35,5 +34,5 @@ abstract class Route
         return Config::get('REST_NAMESPACE') ?? $this->namespace;
     }
 
-    abstract public function handle(WP_REST_Request $data);
+    abstract public function handle(\WP_REST_Request $data);
 }

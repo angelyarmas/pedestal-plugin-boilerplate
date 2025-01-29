@@ -11,17 +11,17 @@
  * License:             GPL-2.0-or-later
  * License URI:         https://www.gnu.org/licenses/gpl-2.0.html
  * Text Domain:         pedestal-before-after-gallery
- * Domain Path:         /languages
+ * Domain Path:         /languages.
  */
 
-use Pedestal\PedestalNamespace\Internals\Bootstrap;
+use PedestalNamespace\Internals\Bootstrap;
 
-if (! defined('ABSPATH')) {
+if (!defined('ABSPATH')) {
     exit; // Exit if accessed directly.
 }
 
 // Add composer autoload
-require_once __DIR__ . '/vendor/autoload.php';
+require_once __DIR__.'/vendor/autoload.php';
 
 // Setup activation hooks.
 register_activation_hook(__FILE__, [Bootstrap::class, 'activate']);
@@ -30,4 +30,4 @@ register_activation_hook(__FILE__, [Bootstrap::class, 'activate']);
 register_deactivation_hook(__FILE__, [Bootstrap::class, 'deactivate']);
 
 // Initialize the plugin.
-Pedestal\PedestalNamespace\Internals\Bootstrap::start();
+Bootstrap::start();
