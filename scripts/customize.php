@@ -31,34 +31,77 @@ class CustomizePluginCommand extends Command
 
         // Get plugin information
         $pluginName = $io->ask('What is your plugin name?', 'My Awesome Plugin');
+        $sanitizedName = $this->sanitizeFileName($pluginName);
+
         $pluginNamespace = $io->ask('What is your plugin namespace?', 'MyAwesomePlugin');
         $pluginPrefix = $io->ask('What is your plugin prefix?', 'map');
         $pluginDescription = $io->ask('What is your plugin description?', '');
         $authorName = $io->ask('What is your name?', '');
         $authorEmail = $io->ask('What is your email?', '');
 
+        // Get API namespace and text domain with defaults
+        $apiNamespace = $io->ask(
+            'What is your REST API route namespace? (Press enter to use "' . $sanitizedName . '")',
+            $sanitizedName
+        );
+
+        $textDomain = $io->ask(
+            'What is your text domain? (Press enter to use "' . $sanitizedName . '")',
+            $sanitizedName
+        );
+
         // Replace in all PHP files
         $this->processDirectory($this->rootDir, [
-            'MyPluginBoilerplate' => $pluginNamespace,
-            'my-plugin-boilerplate' => $this->sanitizeFileName($pluginName),
+            'PedestalNamespace' => $pluginNamespace,
+            'my-plugin-boilerplate' => $sanitizedName,
             'mpb_' => $pluginPrefix . '_',
-            'My Plugin Boilerplate' => $pluginName,
-            'Plugin boilerplate description' => $pluginDescription,
+            'Pedestal Plugin Name' => $pluginName,
+            'Pedestal Plugin description' => $pluginDescription,
             'Author Name' => $authorName,
-            'author@email.com' => $authorEmail
+            'author@email.com' => $authorEmail,
+            "'mpb-api'" => "'" . $apiNamespace . "'", // For API namespace in register_rest_route
+            "'my-plugin-boilerplate'" => "'" . $textDomain . "'", // For text domain
+            'mpb-api/v1' => $apiNamespace . '/v1', // For API routes
         ]);
 
-        // Rename main plugin file
+        // Update main plugin file
         $oldMainFile = $this->rootDir . '/my-plugin-boilerplate.php';
-        $newMainFile = $this->rootDir . '/' . $this->sanitizeFileName($pluginName) . '.php';
+        $newMainFile = $this->rootDir . '/' . $sanitizedName . '.php';
         if (file_exists($oldMainFile)) {
-            rename($oldMainFile, $newMainFile);
+            $content = file_get_contents($oldMainFile);
+
+            // Update plugin header
+            $pluginHeader = <<<EOT
+/**
+ * Plugin Name: {$pluginName}
+ * Plugin URI:
+ * Description: {$pluginDescription}
+ * Version: 1.0.0
+ * Author: {$authorName}
+ * Author URI:
+ * License: GPL-2.0+
+ * License URI: http://www.gnu.org/licenses/gpl-2.0.txt
+ * Text Domain: {$textDomain}
+ * Domain Path: /languages
+ */
+EOT;
+            $content = preg_replace('/\/\*\*[\s\S]+?\*\//', $pluginHeader, $content, 1);
+            file_put_contents($newMainFile, $content);
+
+            if ($oldMainFile !== $newMainFile) {
+                unlink($oldMainFile);
+            }
         }
 
         // Clean up unnecessary files and directories
         $this->cleanup();
 
-        $io->success('Plugin has been customized successfully!');
+        $io->success([
+            'Plugin has been customized successfully!',
+            'API Namespace: ' . $apiNamespace . '/v1',
+            'Text Domain: ' . $textDomain
+        ]);
+
         return Command::SUCCESS;
     }
 
@@ -70,7 +113,7 @@ class CustomizePluginCommand extends Command
         );
 
         foreach ($iterator as $file) {
-            if ($file->isFile() && $file->getExtension() === 'php') {
+            if ($file->isFile() && ($file->getExtension() === 'php' || $file->getExtension() === 'pot')) {
                 $content = file_get_contents($file->getPathname());
                 $content = str_replace(
                     array_keys($replacements),
@@ -92,8 +135,8 @@ class CustomizePluginCommand extends Command
 
         // Remove any other unnecessary files or directories
         $unnecessaryFiles = [
-            $this->rootDir . '/.git',           // Remove Git history
-            $this->rootDir . '/composer.lock',   // Remove composer.lock as it's a new project
+            $this->rootDir . '/.git',
+            $this->rootDir . '/composer.lock',
         ];
 
         foreach ($unnecessaryFiles as $file) {
@@ -109,7 +152,6 @@ class CustomizePluginCommand extends Command
         if (file_exists($composerFile)) {
             $composer = json_decode(file_get_contents($composerFile), true);
             unset($composer['scripts']['post-create-project-cmd']);
-            // Remove symfony/console from require-dev as it's no longer needed
             unset($composer['require-dev']['symfony/console']);
             if (empty($composer['require-dev'])) {
                 unset($composer['require-dev']);
