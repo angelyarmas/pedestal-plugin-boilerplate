@@ -1,7 +1,7 @@
 {
     "name": "pedestal/pedestal-before-after-gallery",
     "description": "Advanced before and after gallery by Pedestal.",
-    "version": "0.0.1",
+    "version": "v0.0.1",
     "type": "project",
     "autoload": {
         "psr-4": {
