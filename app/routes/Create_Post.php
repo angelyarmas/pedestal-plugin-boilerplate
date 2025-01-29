@@ -1,10 +1,9 @@
 <?php
 
-namespace Pedestal\PedestalNamespace\Routes;
+namespace PedestalNamespace\Routes;
 
-use WP_REST_Request;
-use Pedestal\PedestalNamespace\Internals\Base\Route;
-use Pedestal\PedestalNamespace\Internals\Config;
+use PedestalNamespace\Internals\Base\Route;
+use PedestalNamespace\Internals\Config;
 
 class Create_Post extends Route
 {
@@ -13,7 +12,7 @@ class Create_Post extends Route
     /**
      * The route action callback.
      */
-    public function handle(WP_REST_Request $data)
+    public function handle(\WP_REST_Request $data)
     {
         $response = [
             'status' => 'error',
@@ -26,6 +25,7 @@ class Create_Post extends Route
 
         if (empty($post_title) || empty($post_content)) {
             $response['message'] = 'Post title and content are required.';
+
             return rest_ensure_response($response);
         }
 

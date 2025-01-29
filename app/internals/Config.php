@@ -1,6 +1,6 @@
 <?php
 
-namespace Pedestal\PedestalNamespace\Internals;
+namespace PedestalNamespace\Internals;
 
 use Noodlehaus\Config as NoodlehausConfig;
 
@@ -15,9 +15,10 @@ class Config
 
     public static function getInstance()
     {
-        if (self::$instance === null) {
+        if (null === self::$instance) {
             self::$instance = new NoodlehausConfig(Locator::get_path('app/config/'));
         }
+
         return self::$instance;
     }
 

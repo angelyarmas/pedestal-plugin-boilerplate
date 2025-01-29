@@ -1,9 +1,9 @@
 <?php
 
-use Pedestal\PedestalNamespace\Hooks\Assets;
-use Pedestal\PedestalNamespace\Internals\Facades\Hooks;
+use PedestalNamespace\Hooks\Assets;
+use PedestalNamespace\Internals\Facades\Hooks;
 
-/**
+/*
  * Register all basic actions and filters for the plugin.
  */
 Hooks::add_action('init', [Assets::class, 'register_plugin_assets'], 10, 2);

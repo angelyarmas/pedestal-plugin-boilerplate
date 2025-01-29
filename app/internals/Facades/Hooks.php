@@ -1,8 +1,8 @@
 <?php
 
-namespace Pedestal\PedestalNamespace\Internals\Facades;
+namespace PedestalNamespace\Internals\Facades;
 
-use Pedestal\PedestalNamespace\Internals\Hooks as HooksClass;
+use PedestalNamespace\Internals\Hooks as HooksClass;
 
 /**
  * Facade for the Hooks class.

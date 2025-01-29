@@ -1,8 +1,8 @@
 <?php
 
-namespace Pedestal\PedestalNamespace\Models;
+namespace PedestalNamespace\Models;
 
-use Pedestal\PedestalNamespace\Internals\Base\PostType;
+use PedestalNamespace\Internals\Base\PostType;
 
 class Patient extends PostType
 {

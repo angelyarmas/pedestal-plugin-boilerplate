@@ -1,6 +1,6 @@
 <?php
 
-namespace Pedestal\PedestalNamespace\Internals;
+namespace PedestalNamespace\Internals;
 
 class Locator
 {
@@ -8,10 +8,9 @@ class Locator
      * helper of the plugins_url() WordPress method.
      * Pointing to URLs within your plugin folder.
      *
-     * @param string $file_location
      * @return string
      */
-    public static function get_url(string $file_location = null)
+    public static function get_url(?string $file_location = null)
     {
         return plugins_url($file_location, dirname(__DIR__));
     }
@@ -20,15 +19,14 @@ class Locator
      * Helper of the plugins_dir_path() WordPress method.
      * Pointing to files within your plugin folder.
      *
-     * @param string $file_location
      * @return string
      */
-    public static function get_path(string $file_location = null)
+    public static function get_path(?string $file_location = null)
     {
-        return trailingslashit(plugin_dir_path(DIRNAME(__DIR__))) . $file_location;
+        return trailingslashit(plugin_dir_path(dirname(__DIR__))).$file_location;
     }
 
-    public static function get_dir_list(string $parent_dir = null)
+    public static function get_dir_list(?string $parent_dir = null)
     {
         $full_parent_path = self::get_path($parent_dir);
 
