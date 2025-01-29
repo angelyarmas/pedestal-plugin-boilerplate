@@ -1,10 +1,9 @@
 <?php
 
-namespace Pedestal\PedestalNamespace\Internals;
+namespace PedestalNamespace\Internals;
 
 use HaydenPierce\ClassFinder\ClassFinder;
-use Pedestal\PedestalNamespace\Internals\Facades\Hooks;
-use Pedestal\PedestalNamespace\Routes\Create_Post;
+use PedestalNamespace\Internals\Facades\Hooks;
 
 /**
  * Initialize all the plugins' hooks and filters.
@@ -17,7 +16,7 @@ class Bootstrap
         require_once Locator::get_path('app/Loader.php');
 
         // Register Models for post types and taxonomies.
-        $models = ClassFinder::getClassesInNamespace('Pedestal\PedestalNamespace\Models');
+        $models = ClassFinder::getClassesInNamespace('PedestalNamespace\Models');
         foreach ($models as $model) {
             if (method_exists($model, 'register')) {
                 Hooks::add_action('init', [new $model(), 'register'], 10, 1);
@@ -25,7 +24,7 @@ class Bootstrap
         }
 
         // Register the plugin's routes.
-        $routes = ClassFinder::getClassesInNamespace('Pedestal\PedestalNamespace\Routes');
+        $routes = ClassFinder::getClassesInNamespace('PedestalNamespace\Routes');
         foreach ($routes as $route) {
             if (method_exists($route, 'register')) {
                 Hooks::add_action('rest_api_init', [new $route(), 'register'], 10, 1);
@@ -42,7 +41,7 @@ class Bootstrap
     /**
      * Callback function to register the plugin's gutenberg blocks.
      *
-     * @return  void
+     * @return void
      */
     public static function register_plugin_gutenberg_blocks()
     {
@@ -50,9 +49,9 @@ class Bootstrap
         $block_folders = Locator::get_dir_list('assets/build');
 
         foreach ($block_folders as $block_folder) {
-            $block_path = Locator::get_path('assets/build/' . $block_folder);
+            $block_path = Locator::get_path('assets/build/'.$block_folder);
 
-            if (file_exists($block_path . '/index.js')) {
+            if (file_exists($block_path.'/index.js')) {
                 register_block_type($block_path);
             }
         }
@@ -61,7 +60,7 @@ class Bootstrap
     /**
      * Callback function to run on plugin activation.
      *
-     * @return  void
+     * @return void
      */
     public static function activate()
     {
@@ -71,7 +70,7 @@ class Bootstrap
     /**
      * Callback function to run on plugin deactivation.
      *
-     * @return  void
+     * @return void
      */
     public static function deactivate()
     {

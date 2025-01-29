@@ -1,6 +1,6 @@
 <?php
 
-namespace Pedestal\PedestalNamespace\Internals;
+namespace PedestalNamespace\Internals;
 
 /**
  * Register all actions and filters for the plugin.
@@ -9,23 +9,21 @@ namespace Pedestal\PedestalNamespace\Internals;
  * the plugin, and register them with the WordPress API. Call the
  * run function to execute the list of actions and filters.
  *
- * @package    Sa_Photo_Gallery_3
- * @subpackage Sa_Photo_Gallery_3/includes
  * @author     Ángel Yarmas <ayarmas@surgeonsadvisor.com>
  */
 class Hooks
 {
     private static $instances = [];
-    private $actions = array();
-    private $filters = array();
-    private $shortcodes = array();
+    private $actions = [];
+    private $filters = [];
+    private $shortcodes = [];
 
     /**
      * Main Hooks Instance.
      *
      * Ensures only one instance of Hooks is loaded or can be loaded.
      *
-     * @return Hooks - Main instance.
+     * @return hooks - Main instance
      */
     public static function instance()
     {
@@ -41,11 +39,11 @@ class Hooks
      * Add a new action to the collection to be registered with WordPress.
      *
      * @since    1.0.0
-     * @param    string               $hook             The name of the WordPress action that is being registered.
-     * @param    object               $component        A reference to the instance of the object on which the action is defined.
-     * @param    string               $callback         The name of the function definition on the $component.
-     * @param    int                  $priority         Optional. he priority at which the function should be fired. Default is 10.
-     * @param    int                  $accepted_args    Optional. The number of arguments that should be passed to the $callback. Default is 1.
+     *
+     * @param string $hook          the name of the WordPress action that is being registered
+     * @param string $callback      the name of the function definition on the $component
+     * @param int    $priority      Optional. he priority at which the function should be fired. Default is 10.
+     * @param int    $accepted_args Optional. The number of arguments that should be passed to the $callback. Default is 1.
      */
     public function add_action($hook, $callback, $priority = 10, $accepted_args = 1)
     {
@@ -56,11 +54,11 @@ class Hooks
      * Add a new filter to the collection to be registered with WordPress.
      *
      * @since    1.0.0
-     * @param    string               $hook             The name of the WordPress filter that is being registered.
-     * @param    object               $component        A reference to the instance of the object on which the filter is defined.
-     * @param    string               $callback         The name of the function definition on the $component.
-     * @param    int                  $priority         Optional. he priority at which the function should be fired. Default is 10.
-     * @param    int                  $accepted_args    Optional. The number of arguments that should be passed to the $callback. Default is 1
+     *
+     * @param string $hook          the name of the WordPress filter that is being registered
+     * @param string $callback      the name of the function definition on the $component
+     * @param int    $priority      Optional. he priority at which the function should be fired. Default is 10.
+     * @param int    $accepted_args Optional. The number of arguments that should be passed to the $callback. Default is 1
      */
     public function add_filter($hook, $callback, $priority = 10, $accepted_args = 1)
     {
@@ -71,11 +69,11 @@ class Hooks
      * Add a new shortcode to the collection to be registered with WordPress.
      *
      * @since    1.0.0
-     * @param    string               $hook             The name of the WordPress shortcode that is being registered.
-     * @param    object               $component        A reference to the instance of the object on which the shortcode is defined.
-     * @param    string               $callback         The name of the function definition on the $component.
-     * @param    int                  $priority         Optional. he priority at which the function should be fired. Default is 10.
-     * @param    int                  $accepted_args    Optional. The number of arguments that should be passed to the $callback. Default is 1
+     *
+     * @param string $hook          the name of the WordPress shortcode that is being registered
+     * @param string $callback      the name of the function definition on the $component
+     * @param int    $priority      Optional. he priority at which the function should be fired. Default is 10.
+     * @param int    $accepted_args Optional. The number of arguments that should be passed to the $callback. Default is 1
      */
     public function add_shortcode($hook, $callback, $priority = 10, $accepted_args = 1)
     {
@@ -87,23 +85,23 @@ class Hooks
      * collection.
      *
      * @since    1.0.0
-     * @access   private
-     * @param    array                $hooks            The collection of hooks that is being registered (that is, actions or filters).
-     * @param    string               $hook             The name of the WordPress filter that is being registered.
-     * @param    object               $component        A reference to the instance of the object on which the filter is defined.
-     * @param    string               $callback         The name of the function definition on the $component.
-     * @param    int                  $priority         The priority at which the function should be fired.
-     * @param    int                  $accepted_args    The number of arguments that should be passed to the $callback.
-     * @return   array                                  The collection of actions and filters registered with WordPress.
+     *
+     * @param array  $hooks         the collection of hooks that is being registered (that is, actions or filters)
+     * @param string $hook          the name of the WordPress filter that is being registered
+     * @param string $callback      the name of the function definition on the $component
+     * @param int    $priority      the priority at which the function should be fired
+     * @param int    $accepted_args the number of arguments that should be passed to the $callback
+     *
+     * @return array the collection of actions and filters registered with WordPress
      */
     private function add($hooks, $hook, $callback, $priority, $accepted_args)
     {
-        $hooks[] = array(
-            'hook'          => $hook,
-            'callback'      => $callback,
-            'priority'      => $priority,
-            'accepted_args' => $accepted_args
-        );
+        $hooks[] = [
+            'hook' => $hook,
+            'callback' => $callback,
+            'priority' => $priority,
+            'accepted_args' => $accepted_args,
+        ];
 
         return $hooks;
     }
@@ -127,5 +125,4 @@ class Hooks
             add_shortcode($hook['hook'], $hook['callback']);
         }
     }
-
 }

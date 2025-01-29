@@ -4,7 +4,7 @@
     "type": "wordpress-plugin",
     "autoload": {
         "psr-4": {
-            "Pedestal\\PedestalNamespace\\": "app/"
+            "PedestalNamespace\\": "app/"
         }
     },
     "authors": [
@@ -17,5 +17,8 @@
         "hassankhan/config": "^3.1",
         "icanboogie/inflector": "^2.2",
         "haydenpierce/class-finder": "^0.5.3"
+    },
+    "require-dev": {
+        "symfony/console": "^5.4"
     }
 }
