@@ -1,7 +1,7 @@
 <?php
 
 return [
-    'PLUGIN_NAME' => 'Before and After Gallery by Pedestal',
+    'PLUGIN_NAME' => 'Pedestal Plugin Name',
     'PLUGIN_VERSION' => '0.1.0',
 
     // Language and text domain options
