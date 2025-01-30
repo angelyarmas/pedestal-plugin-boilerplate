@@ -155,7 +155,16 @@ EOT;
         $composerFile = $this->rootDir.'/composer.json';
         if (file_exists($composerFile)) {
             $composer = json_decode(file_get_contents($composerFile), true);
+
+            // Remove post-create-project-cmd script
+            // and script section if it's empty
             unset($composer['scripts']['post-create-project-cmd']);
+            if (empty($composer['scripts'])) {
+                unset($composer['scripts']);
+            }
+
+            // Remove symfony/console from require-dev
+            // and require-dev section if it's empty
             unset($composer['require-dev']['symfony/console']);
             if (empty($composer['require-dev'])) {
                 unset($composer['require-dev']);
