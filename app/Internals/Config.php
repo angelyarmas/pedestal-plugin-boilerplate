@@ -16,7 +16,11 @@ class Config
     public static function getInstance()
     {
         if (null === self::$instance) {
-            self::$instance = new NoodlehausConfig(Locator::get_path('app/config/'));
+            $config = new NoodlehausConfig([]);
+            // $config->load(Locator::get_path('app/config/'));
+            // $config->load(get_plugin_data(Locator::get_path('my-plugin-boilerplate.php')));
+
+            self::$instance = $config;
         }
 
         return self::$instance;
