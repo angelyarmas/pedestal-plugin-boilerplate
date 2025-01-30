@@ -13,12 +13,12 @@ class Assets
     public static function register_plugin_assets(): void
     {
         // Register the plugin's scripts and styles.
-        wp_register_script('pedestal-before-after-gallery-admin', Locator::get_url('assets/internal/admin.js'), ['jquery'], Config::get('PLUGIN_VERSION'), true);
-        wp_register_style('pedestal-before-after-gallery-admin', Locator::get_url('assets/internal/admin.css'), [], Config::get('PLUGIN_VERSION'));
+        wp_register_script('my-plugin-boilerplate-admin', Locator::get_url('assets/internal/admin.js'), ['jquery'], Config::get('PLUGIN_VERSION'), true);
+        wp_register_style('my-plugin-boilerplate-admin', Locator::get_url('assets/internal/admin.css'), [], Config::get('PLUGIN_VERSION'));
 
         // Register the plugin's scripts and styles.
-        wp_register_script('pedestal-before-after-gallery-front', Locator::get_url('assets/internal/front.js'), ['jquery'], Config::get('PLUGIN_VERSION'), true);
-        wp_register_style('pedestal-before-after-gallery-front', Locator::get_url('assets/internal/front.css'), [], Config::get('PLUGIN_VERSION'));
+        wp_register_script('my-plugin-boilerplate-front', Locator::get_url('assets/internal/front.js'), ['jquery'], Config::get('PLUGIN_VERSION'), true);
+        wp_register_style('my-plugin-boilerplate-front', Locator::get_url('assets/internal/front.css'), [], Config::get('PLUGIN_VERSION'));
     }
 
     /**
@@ -27,8 +27,8 @@ class Assets
     public static function load_plugin_front_assets(): void
     {
         // Load the plugin's front-end assets.
-        wp_enqueue_script('pedestal-before-after-gallery-front');
-        wp_enqueue_style('pedestal-before-after-gallery-front');
+        wp_enqueue_script('my-plugin-boilerplate-front');
+        wp_enqueue_style('my-plugin-boilerplate-front');
     }
 
     /**
@@ -37,7 +37,7 @@ class Assets
     public static function load_plugin_admin_assets(): void
     {
         // Load the plugin's admin assets.
-        wp_enqueue_script('pedestal-before-after-gallery-admin');
-        wp_enqueue_style('pedestal-before-after-gallery-admin');
+        wp_enqueue_script('my-plugin-boilerplate-admin');
+        wp_enqueue_style('my-plugin-boilerplate-admin');
     }
 }
