@@ -1,6 +1,6 @@
 {
-    "name": "pedestal/pedestal-before-after-gallery",
-    "description": "Advanced before and after gallery by Pedestal.",
+    "name": "angelyarmas/pedestal-plugin-boilerplate",
+    "description": "Pedestal Plugin Boilerplate",
     "version": "v0.0.1",
     "type": "project",
     "autoload": {
