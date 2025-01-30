@@ -1,7 +1,7 @@
 {
     "name": "angelyarmas/pedestal-plugin-boilerplate",
     "description": "Pedestal Plugin Boilerplate",
-    "version": "v0.0.1",
+    "version": "v0.0.2",
     "license": "Apache-2.0",
     "type": "project",
     "autoload": {
