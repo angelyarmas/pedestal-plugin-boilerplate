@@ -10,7 +10,7 @@
  * Author:              Author Name
  * License:             GPL-2.0-or-later
  * License URI:         https://www.gnu.org/licenses/gpl-2.0.html
- * Text Domain:         pedestal-before-after-gallery
+ * Text Domain:         my-plugin-boilerplate
  * Domain Path:         /languages.
  */
 
