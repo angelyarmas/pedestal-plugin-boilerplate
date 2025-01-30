@@ -8,6 +8,11 @@
             "PedestalNamespace\\": "app/"
         }
     },
+    "scripts": {
+        "post-create-project-cmd": [
+            "@php scripts/customize.php"
+        ]
+    },
     "repositories": [
         {
             "type": "vcs",
